@@ -1,0 +1,84 @@
+﻿@model List<baitap21.Models.Sinhvien>
+@{
+    ViewBag.Title = "Danh sách sinh viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách Sinh viên <a href="~/SinhVien/them" class="button">Thêm</a></h2>
+
+<hr />
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Mã SV</th>
+            <th>Họ </th>
+            <th>Tên</th>
+            <th>Tên viết</th>
+            <th>DOB</th>
+            <th>Nơi Sinh</th>
+            <th>Giới Tính</th>
+            <th>Địa chỉ</th>
+            <th>Tel</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>EmailDCT</th>
+            <th>Điểm TS</th>
+            <th>Accno</th>
+            <th>Password</th>
+            <th>Status</th>
+            <th>Ghi Chú</th>
+            <th>Mã KH</th>
+            <th>SCMND</th>
+            <th>Tên KD</th>
+            <th>Special</th>
+            <th>Điểm RL</th>
+            <th>QDTT</th>
+            <th>CDRTH</th>
+            <th>SCMND_IMG</th>
+            <th>CapDT</th>
+            <th>KS</th>
+            <th>Dân tộc</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Model in Model)
+        {
+        <tr>
+            <td>@Model.Masv</td>
+            <td>@Model.Ho</td>
+            <td>@Model.Ten</td>
+            <td>@Model.TenViet</td>
+            <td>@Model.DOB</td>
+            <td>@Model.Noisinh</td>
+            <td>@(Model.goitinh == true ? "Nam" : "Nữ")</td>
+            <td>@Model.diachi</td>
+            <td>@Model.tel</td>
+            <td>@Model.mobile</td>
+            <td>@Model.email</td>
+            <td>@Model.emailDCT</td>
+            <td>@Model.diemTS</td>
+            <td>@Model.accno</td>
+            <td>@Model.password</td>
+            <td>@Model.status</td>
+            <td>@Model.ghichu</td>
+            <td>@Model.makh</td>
+            <td>@Model.scmnd</td>
+            <td>@Model.tenKD</td>
+            <td>@Model.special</td>
+            <td>@Model.diemRl</td>
+            <td>@Model.QDTT</td>
+            <td>@Model.CDRTH</td>
+            <td>@Model.SCMND_IMG</td>
+            <td>@Model.CapDT</td>
+            <td>@Model.ks</td>
+            <td>@Model.dantoc</td>
+            <td class="function-cell">
+                <div class="function-buttons">
+                    <a href="~/SinhVien/sua?Masv=@Model.Masv" class="button">Sửa</a>
+                    <a href="~/SinhVien/xoa?Masv=@Model.Masv" class="button">Xóa</a>
+                </div>
+            </td>
+        </tr>}
+    </tbody>
+</table>

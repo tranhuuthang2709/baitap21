@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLySinhVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Giaovien">
+    <Key>
+      <PropertyRef Name="MaGV" />
+    </Key>
+    <Property Name="MaGV" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="HotenGV" Type="nvarchar" MaxLength="100" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="gioitinh" Type="bit" />
+    <Property Name="diachi" Type="nvarchar" MaxLength="200" />
+    <Property Name="tel" Type="nvarchar" MaxLength="20" />
+    <Property Name="mobile" Type="nvarchar" MaxLength="20" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="emailDCT" Type="nvarchar" MaxLength="100" />
+    <Property Name="maDV" Type="nvarchar" MaxLength="20" />
+    <Property Name="hocvi" Type="nvarchar" MaxLength="50" />
+    <Property Name="chucdanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="chucvu" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="100" />
+    <Property Name="website" Type="nvarchar" MaxLength="100" />
+    <Property Name="tenviet" Type="nvarchar" MaxLength="100" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="accright" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LopSH">
+    <Key>
+      <PropertyRef Name="maLSH" />
+    </Key>
+    <Property Name="maLSH" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="tenLSH" Type="nvarchar" MaxLength="100" />
+    <Property Name="manganh" Type="nvarchar" MaxLength="20" />
+    <Property Name="SISO" Type="int" />
+    <Property Name="SLTT" Type="int" />
+    <Property Name="Makhoa" Type="nvarchar" MaxLength="20" />
+    <Property Name="maGVCN" Type="nvarchar" MaxLength="20" />
+    <Property Name="SLNam" Type="int" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ghichu" Type="nvarchar" MaxLength="200" />
+    <Property Name="khoahoc" Type="int" />
+    <Property Name="maloptruong" Type="nvarchar" MaxLength="20" />
+    <Property Name="maloppho" Type="nvarchar" MaxLength="20" />
+    <Property Name="mabithu" Type="nvarchar" MaxLength="20" />
+    <Property Name="HKhienhanh" Type="int" />
+    <Property Name="heDT0" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LSH_SV">
+    <Key>
+      <PropertyRef Name="MaLSH" />
+    </Key>
+    <Property Name="MaLSH" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaSV" Type="nvarchar" MaxLength="20" />
+    <Property Name="curSem" Type="int" />
+    <Property Name="tichluy" Type="int" />
+    <Property Name="GCP" Type="int" />
+    <Property Name="ECP" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ghichu" Type="nvarchar" MaxLength="200" />
+    <Property Name="CN2" Type="bit" />
+  </EntityType>
+  <EntityType Name="Sinhvien">
+    <Key>
+      <PropertyRef Name="Masv" />
+    </Key>
+    <Property Name="Masv" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Ho" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenViet" Type="nvarchar" MaxLength="100" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Noisinh" Type="nvarchar" MaxLength="200" />
+    <Property Name="goitinh" Type="bit" />
+    <Property Name="diachi" Type="nvarchar" MaxLength="200" />
+    <Property Name="tel" Type="nvarchar" MaxLength="20" />
+    <Property Name="mobile" Type="nvarchar" MaxLength="20" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="emailDCT" Type="nvarchar" MaxLength="100" />
+    <Property Name="diemTS" Type="int" />
+    <Property Name="accno" Type="nvarchar" MaxLength="20" />
+    <Property Name="password" Type="nvarchar" MaxLength="100" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ghichu" Type="nvarchar" MaxLength="200" />
+    <Property Name="makh" Type="nvarchar" MaxLength="20" />
+    <Property Name="scmnd" Type="nvarchar" MaxLength="20" />
+    <Property Name="tenKD" Type="nvarchar" MaxLength="50" />
+    <Property Name="special" Type="nvarchar" MaxLength="50" />
+    <Property Name="diemRl" Type="int" />
+    <Property Name="QDTT" Type="int" />
+    <Property Name="CDRTH" Type="int" />
+    <Property Name="SCMND_IMG" Type="nvarchar" MaxLength="100" />
+    <Property Name="CapDT" Type="nvarchar" MaxLength="50" />
+    <Property Name="ks" Type="int" />
+    <Property Name="dantoc" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_LopSH_Giaovien">
+    <End Role="Giaovien" Type="Self.Giaovien" Multiplicity="0..1" />
+    <End Role="LopSH" Type="Self.LopSH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Giaovien">
+        <PropertyRef Name="MaGV" />
+      </Principal>
+      <Dependent Role="LopSH">
+        <PropertyRef Name="maGVCN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LSH_SV_LopSH">
+    <End Role="LopSH" Type="Self.LopSH" Multiplicity="1" />
+    <End Role="LSH_SV" Type="Self.LSH_SV" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="LopSH">
+        <PropertyRef Name="maLSH" />
+      </Principal>
+      <Dependent Role="LSH_SV">
+        <PropertyRef Name="MaLSH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LSH_SV_Sinhvien">
+    <End Role="Sinhvien" Type="Self.Sinhvien" Multiplicity="0..1" />
+    <End Role="LSH_SV" Type="Self.LSH_SV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sinhvien">
+        <PropertyRef Name="Masv" />
+      </Principal>
+      <Dependent Role="LSH_SV">
+        <PropertyRef Name="MaSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLySinhVienModelStoreContainer">
+    <EntitySet Name="Giaovien" EntityType="Self.Giaovien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LopSH" EntityType="Self.LopSH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LSH_SV" EntityType="Self.LSH_SV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sinhvien" EntityType="Self.Sinhvien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LopSH_Giaovien" Association="Self.FK_LopSH_Giaovien">
+      <End Role="Giaovien" EntitySet="Giaovien" />
+      <End Role="LopSH" EntitySet="LopSH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LSH_SV_LopSH" Association="Self.FK_LSH_SV_LopSH">
+      <End Role="LopSH" EntitySet="LopSH" />
+      <End Role="LSH_SV" EntitySet="LSH_SV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LSH_SV_Sinhvien" Association="Self.FK_LSH_SV_Sinhvien">
+      <End Role="Sinhvien" EntitySet="Sinhvien" />
+      <End Role="LSH_SV" EntitySet="LSH_SV" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,103 @@
+﻿/* Các quy tắc cho bảng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+/* Các quy tắc cho các nút */
+a.button {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+    a.button:hover {
+        background-color: #0056b3;
+    }
+
+/* Các quy tắc cho tiêu đề và nội dung trang */
+h2 {
+    margin-bottom: 16px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+/* CSS cho các nút */
+.button {
+    display: inline-block;
+    padding: 5px 20px;
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .button:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .button:active {
+        background-color: #003d80;
+        border-color: #003d80;
+    }
+/* CSS cho ô chức năng */
+.function-cell {
+    text-align: center; /* Căn giữa nội dung trong ô */
+}
+/* CSS cho các nút chức năng */
+.function-buttons {
+    display: flex; /* Sử dụng flexbox để căn giữa các nút */
+    justify-content: center; /* Căn giữa nội dung theo chiều ngang */
+}
+
+    .function-buttons a {
+        display: inline-block;
+        margin: 5px;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .function-buttons a:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .function-buttons a:active {
+            background-color: #003d80;
+            border-color: #003d80;
+        }
+

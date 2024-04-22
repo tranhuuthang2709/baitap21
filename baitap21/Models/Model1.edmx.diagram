@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="13244858582a478f9326fc15ba66d86d" Name="Diagram1" ZoomLevel="59">
+        <EntityTypeShape EntityType="QuanLySinhVienModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySinhVienModel.LopSH" Width="1.5" PointX="11.75" PointY="0.5" />
+        <EntityTypeShape EntityType="QuanLySinhVienModel.Sinhvien" Width="1.5" PointX="16.875" PointY="2.625" />
+        <EntityTypeShape EntityType="QuanLySinhVienModel.Giaovien" Width="1.5" PointX="9.125" PointY="1.375" />
+        <AssociationConnector Association="QuanLySinhVienModel.FK_LopSH_Giaovien" />
+        <EntityTypeShape EntityType="QuanLySinhVienModel.LSH_SV" Width="1.5" PointX="19.125" PointY="3.25" />
+        <AssociationConnector Association="QuanLySinhVienModel.FK_LSH_SV_LopSH" />
+        <AssociationConnector Association="QuanLySinhVienModel.FK_LSH_SV_Sinhvien" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

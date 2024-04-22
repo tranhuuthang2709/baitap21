@@ -1,0 +1,67 @@
+﻿@model List<baitap21.Models.Giaovien>
+
+@{
+    ViewBag.Title = "Danh sách Giáo viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách Giáo viên <a href="~/GiaoVien/them" class="button">Thêm</a></h2>
+
+<hr />
+<table>
+    <thead>
+        <tr>
+            <th>Mã GV</th>
+            <th>Họ tên</th>
+            <th>DOB</th>
+            <th>Giới tính</th>
+            <th>Địa chỉ</th>
+            <th>tel</th>
+            <th>mobile</th>
+            <th>email</th>
+            <th>emailDCT</th>
+            <th>Mã DV</th>
+            <th>Học vị</th>
+            <th>Chức danh</th>
+            <th>Chức vụ</th>
+            <th>Mật khẩu</th>
+            <th>website</th>
+            <th>Tên viết</th>
+            <th>status</th>
+            <th>accright</th>
+            <th>Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var giaovien in Model)
+        {
+            <tr>
+                <td>@giaovien.MaGV</td>
+                <td>@giaovien.HotenGV</td>
+                <td>@giaovien.DOB</td>
+                <td>@(giaovien.gioitinh ==true?"Nam":"Nữ")</td>
+                <td>@giaovien.diachi</td>
+                <td>@giaovien.tel</td>
+                <td>@giaovien.mobile</td>
+                <td>@giaovien.email</td>
+                <td>@giaovien.emailDCT</td>
+                <td>@giaovien.maDV</td>
+                <td>@giaovien.hocvi</td>
+                <td>@giaovien.chucdanh</td>
+                <td>@giaovien.chucvu</td>
+                <td>@giaovien.password</td>
+                <td>@giaovien.website</td>
+                <td>@giaovien.tenviet</td>
+                <td>@giaovien.status</td>
+                <td>@giaovien.accright</td>
+                <td class="function-cell">
+                    <div class="function-buttons">
+                        <a href="~/GiaoVien/sua?MaGV=@giaovien.MaGV" class="button">Sửa</a>
+                        <a href="~/GiaoVien/xoa?MaGV=@giaovien.MaGV" class="button">Xóa</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLySinhVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="QuanLySinhVienEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="LopSH" EntityType="QuanLySinhVienModel.LopSH" />
+    <EntitySet Name="Sinhvien" EntityType="QuanLySinhVienModel.Sinhvien" />
+    <EntitySet Name="Giaovien" EntityType="QuanLySinhVienModel.Giaovien" />
+    <AssociationSet Name="FK_LopSH_Giaovien" Association="QuanLySinhVienModel.FK_LopSH_Giaovien">
+      <End Role="Giaovien" EntitySet="Giaovien" />
+      <End Role="LopSH" EntitySet="LopSH" />
+    </AssociationSet>
+    <EntitySet Name="LSH_SV" EntityType="QuanLySinhVienModel.LSH_SV" />
+    <AssociationSet Name="FK_LSH_SV_LopSH" Association="QuanLySinhVienModel.FK_LSH_SV_LopSH">
+      <End Role="LopSH" EntitySet="LopSH" />
+      <End Role="LSH_SV" EntitySet="LSH_SV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LSH_SV_Sinhvien" Association="QuanLySinhVienModel.FK_LSH_SV_Sinhvien">
+      <End Role="Sinhvien" EntitySet="Sinhvien" />
+      <End Role="LSH_SV" EntitySet="LSH_SV" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="LopSH">
+    <Key>
+      <PropertyRef Name="maLSH" />
+    </Key>
+    <Property Name="maLSH" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="tenLSH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="manganh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SISO" Type="Int32" />
+    <Property Name="SLTT" Type="Int32" />
+    <Property Name="Makhoa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="maGVCN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SLNam" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ghichu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="khoahoc" Type="Int32" />
+    <Property Name="maloptruong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="maloppho" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="mabithu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HKhienhanh" Type="Int32" />
+    <Property Name="heDT0" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Giaovien" Relationship="QuanLySinhVienModel.FK_LopSH_Giaovien" FromRole="LopSH" ToRole="Giaovien" />
+    <NavigationProperty Name="LSH_SV" Relationship="QuanLySinhVienModel.FK_LSH_SV_LopSH" FromRole="LopSH" ToRole="LSH_SV" />
+  </EntityType>
+  <EntityType Name="Sinhvien">
+    <Key>
+      <PropertyRef Name="Masv" />
+    </Key>
+    <Property Name="Masv" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Ho" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenViet" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Noisinh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="goitinh" Type="Boolean" />
+    <Property Name="diachi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="emailDCT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="diemTS" Type="Int32" />
+    <Property Name="accno" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ghichu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="makh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="scmnd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="tenKD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="special" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diemRl" Type="Int32" />
+    <Property Name="QDTT" Type="Int32" />
+    <Property Name="CDRTH" Type="Int32" />
+    <Property Name="SCMND_IMG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CapDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ks" Type="Int32" />
+    <Property Name="dantoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LSH_SV" Relationship="QuanLySinhVienModel.FK_LSH_SV_Sinhvien" FromRole="Sinhvien" ToRole="LSH_SV" />
+  </EntityType>
+  <EntityType Name="Giaovien">
+    <Key>
+      <PropertyRef Name="MaGV" />
+    </Key>
+    <Property Name="MaGV" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HotenGV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="gioitinh" Type="Boolean" />
+    <Property Name="diachi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="emailDCT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="maDV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="hocvi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="chucdanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="chucvu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="tenviet" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="accright" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LopSH" Relationship="QuanLySinhVienModel.FK_LopSH_Giaovien" FromRole="Giaovien" ToRole="LopSH" />
+  </EntityType>
+  <Association Name="FK_LopSH_Giaovien">
+    <End Type="QuanLySinhVienModel.Giaovien" Role="Giaovien" Multiplicity="0..1" />
+    <End Type="QuanLySinhVienModel.LopSH" Role="LopSH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Giaovien">
+        <PropertyRef Name="MaGV" />
+      </Principal>
+      <Dependent Role="LopSH">
+        <PropertyRef Name="maGVCN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LSH_SV">
+    <Key>
+      <PropertyRef Name="MaLSH" />
+    </Key>
+    <Property Name="MaLSH" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MaSV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="curSem" Type="Int32" />
+    <Property Name="tichluy" Type="Int32" />
+    <Property Name="GCP" Type="Int32" />
+    <Property Name="ECP" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ghichu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CN2" Type="Boolean" />
+    <NavigationProperty Name="LopSH" Relationship="QuanLySinhVienModel.FK_LSH_SV_LopSH" FromRole="LSH_SV" ToRole="LopSH" />
+    <NavigationProperty Name="Sinhvien" Relationship="QuanLySinhVienModel.FK_LSH_SV_Sinhvien" FromRole="LSH_SV" ToRole="Sinhvien" />
+  </EntityType>
+  <Association Name="FK_LSH_SV_LopSH">
+    <End Type="QuanLySinhVienModel.LopSH" Role="LopSH" Multiplicity="1" />
+    <End Type="QuanLySinhVienModel.LSH_SV" Role="LSH_SV" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="LopSH">
+        <PropertyRef Name="maLSH" />
+      </Principal>
+      <Dependent Role="LSH_SV">
+        <PropertyRef Name="MaLSH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LSH_SV_Sinhvien">
+    <End Type="QuanLySinhVienModel.Sinhvien" Role="Sinhvien" Multiplicity="0..1" />
+    <End Type="QuanLySinhVienModel.LSH_SV" Role="LSH_SV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sinhvien">
+        <PropertyRef Name="Masv" />
+      </Principal>
+      <Dependent Role="LSH_SV">
+        <PropertyRef Name="MaSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
